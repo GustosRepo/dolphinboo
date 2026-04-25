@@ -69,6 +69,8 @@ export interface VoteResponse {
 
 export interface Database {
   public: {
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
     Tables: {
       profiles: {
         Row: Profile;

@@ -17,7 +17,8 @@ export default function TopicsPage() {
       .select('*, votes(count)')
       .order('created_at', { ascending: false });
     setTopics(
-      (data ?? []).map((t: Record<string, unknown>) => ({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (data ?? []).map((t: any) => ({
         ...(t as Topic),
         vote_count: (t['votes'] as Array<{ count: number }>)?.[0]?.count ?? 0,
         votes: undefined,

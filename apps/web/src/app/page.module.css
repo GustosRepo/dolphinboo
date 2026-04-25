@@ -1,0 +1,195 @@
+/* ── Variables ────────────────────────────────────────────── */
+:root {
+  --dolphin-50:  #f0f9ff;
+  --dolphin-100: #e0f2fe;
+  --dolphin-600: #0284c7;
+  --dolphin-700: #0369a1;
+  --dolphin-900: #0c4a6e;
+  --gray-50:  #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-900: #111827;
+}
+
+/* ── Nav ──────────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gray-100);
+}
+.navInner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 1.5rem; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.navLogo { display: flex; align-items: center; gap: 0.5rem; }
+.navLogo img { width: 32px; height: 32px; object-fit: contain; }
+.navLogo span { font-weight: 800; font-size: 1.1rem; color: var(--gray-900); }
+.navLinks { display: flex; align-items: center; gap: 1.5rem; }
+.navLink {
+  font-size: 0.875rem; color: var(--gray-500); text-decoration: none;
+  transition: color 0.15s;
+}
+.navLink:hover { color: var(--gray-900); }
+.navCta {
+  background: var(--dolphin-600); color: #fff;
+  font-size: 0.875rem; font-weight: 600;
+  padding: 0.5rem 1rem; border-radius: 0.5rem;
+  text-decoration: none; transition: background 0.15s;
+}
+.navCta:hover { background: var(--dolphin-700); }
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero {
+  padding: 8rem 1.5rem 5rem;
+  text-align: center;
+  background: linear-gradient(to bottom, var(--dolphin-50), #fff);
+}
+.heroInner { max-width: 720px; margin: 0 auto; }
+.heroLogo { width: 96px; height: 96px; object-fit: contain; margin: 0 auto 1.5rem; display: block; }
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 3.75rem);
+  font-weight: 900; line-height: 1.1; color: var(--gray-900);
+  margin-bottom: 1rem;
+}
+.heroTitle span { color: var(--dolphin-600); }
+.heroSub {
+  font-size: 1.2rem; color: var(--gray-500);
+  max-width: 480px; margin: 0 auto 2rem; line-height: 1.6;
+}
+.heroBtns {
+  display: flex; flex-wrap: wrap; gap: 0.75rem;
+  justify-content: center; margin-bottom: 4rem;
+}
+.btnDark {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--gray-900); color: #fff;
+  font-weight: 600; padding: 0.875rem 1.5rem; border-radius: 0.75rem;
+  text-decoration: none; transition: background 0.15s;
+}
+.btnDark:hover { background: #374151; }
+.btnOutline {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: #fff; color: var(--gray-900);
+  font-weight: 600; padding: 0.875rem 1.5rem; border-radius: 0.75rem;
+  border: 1px solid var(--gray-200); text-decoration: none;
+  transition: border-color 0.15s;
+}
+.btnOutline:hover { border-color: var(--gray-400); }
+.heroBanner {
+  width: 100%; border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+  border: 1px solid var(--gray-100);
+  max-width: 900px; margin: 0 auto; display: block;
+}
+
+/* ── Features ─────────────────────────────────────────────── */
+.features { padding: 6rem 1.5rem; background: #fff; }
+.sectionInner { max-width: 1100px; margin: 0 auto; }
+.sectionHead { text-align: center; margin-bottom: 3.5rem; }
+.sectionTitle {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 900; color: var(--gray-900); margin-bottom: 0.75rem;
+}
+.sectionSub { font-size: 1.1rem; color: var(--gray-500); max-width: 500px; margin: 0 auto; }
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+.featureCard {
+  padding: 1.5rem; border-radius: 1rem;
+  border: 1px solid var(--gray-100);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.featureCard:hover { border-color: #bae6fd; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.featureEmoji { font-size: 2rem; margin-bottom: 0.75rem; }
+.featureTitle { font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.25rem; }
+.featureBody { font-size: 0.9rem; color: var(--gray-500); line-height: 1.6; }
+
+/* ── Pricing ──────────────────────────────────────────────── */
+.pricing {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(to bottom, #fff, var(--dolphin-50));
+}
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem; max-width: 800px; margin: 0 auto;
+}
+.pricingCard {
+  background: #fff; border: 1px solid var(--gray-200);
+  border-radius: 1.25rem; padding: 2rem;
+}
+.pricingCardPremium {
+  background: var(--dolphin-600); color: #fff;
+  border-radius: 1.25rem; padding: 2rem;
+  box-shadow: 0 20px 40px -12px rgba(2,132,199,0.45);
+  position: relative; overflow: hidden;
+}
+.pricingCardPremium::before {
+  content: ''; position: absolute;
+  top: -1rem; right: -1rem;
+  width: 8rem; height: 8rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+.pricingLabel {
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gray-400); margin-bottom: 0.5rem;
+}
+.pricingLabelPremium { color: #bae6fd; }
+.pricingPrice { font-size: 2.5rem; font-weight: 900; color: var(--gray-900); }
+.pricingPricePremium { font-size: 2.5rem; font-weight: 900; color: #fff; }
+.pricingPeriod { font-size: 0.85rem; color: var(--gray-400); margin-bottom: 1.5rem; }
+.pricingPeriodPremium { font-size: 0.85rem; color: #bae6fd; margin-bottom: 1.5rem; }
+.perkList { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.perkItem { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--gray-600); }
+.perkItemPremium { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: #fff; }
+.perkCheck { color: var(--gray-400); }
+.perkStar { color: #bae6fd; }
+.btnPricingFree {
+  display: block; text-align: center;
+  border: 1px solid var(--gray-200); color: var(--gray-700);
+  font-weight: 600; padding: 0.75rem; border-radius: 0.75rem;
+  text-decoration: none; transition: border-color 0.15s;
+}
+.btnPricingFree:hover { border-color: var(--gray-400); }
+.btnPricingPremium {
+  display: block; text-align: center;
+  background: #fff; color: var(--dolphin-700);
+  font-weight: 700; padding: 0.75rem; border-radius: 0.75rem;
+  text-decoration: none; transition: background 0.15s;
+}
+.btnPricingPremium:hover { background: var(--dolphin-50); }
+
+/* ── Final CTA ────────────────────────────────────────────── */
+.cta { padding: 6rem 1.5rem; background: var(--dolphin-600); text-align: center; }
+.ctaLogo { width: 64px; height: 64px; object-fit: contain; margin: 0 auto 1.5rem; display: block; opacity: 0.9; }
+.ctaTitle { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 900; color: #fff; margin-bottom: 1rem; }
+.ctaSub { font-size: 1.1rem; color: #bae6fd; margin-bottom: 2rem; }
+.ctaBtns { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+.btnCtaWhite {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: #fff; color: var(--dolphin-700);
+  font-weight: 700; padding: 0.875rem 1.5rem; border-radius: 0.75rem;
+  text-decoration: none; transition: background 0.15s;
+}
+.btnCtaWhite:hover { background: var(--dolphin-50); }
+.btnCtaDark {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--dolphin-700); color: #fff;
+  font-weight: 700; padding: 0.875rem 1.5rem; border-radius: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  text-decoration: none; transition: background 0.15s;
+}
+.btnCtaDark:hover { background: var(--dolphin-900); }
+
+/* ── Footer ───────────────────────────────────────────────── */
+.footer { padding: 2rem 1.5rem; background: var(--gray-900); text-align: center; }
+.footerText { font-size: 0.85rem; color: var(--gray-500); }

@@ -7,11 +7,12 @@ import type { Post, PostVisibility } from '@dolphinboo/types';
 type FormState = {
   title: string;
   body: string;
+  media_url: string | null;
   visibility: PostVisibility;
   published: boolean;
 };
 
-const defaultForm: FormState = { title: '', body: '', visibility: 'free', published: false };
+const defaultForm: FormState = { title: '', body: '', media_url: null, visibility: 'free', published: false };
 
 export default function PostsPage() {
   const supabase = createClient();
