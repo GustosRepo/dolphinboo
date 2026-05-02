@@ -83,6 +83,20 @@ alter table public.topics      enable row level security;
 alter table public.votes       enable row level security;
 alter table public.admin_users enable row level security;
 
+-- Helper avoids recursive RLS checks when policies need admin status.
+create or replace function public.is_admin(user_id uuid)
+returns boolean
+language sql
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1
+    from public.admin_users
+    where id = user_id
+  );
+$$;
+
 -- profiles: users can read and update only their own row
 create policy "Users can view own profile"
   on public.profiles for select
@@ -113,7 +127,7 @@ create policy "Subscribers can view exclusive posts"
 -- posts: admins can do everything
 create policy "Admins can manage posts"
   on public.posts for all
-  using (exists (select 1 from public.admin_users where id = auth.uid()));
+  using (public.is_admin(auth.uid()));
 
 -- topics: anyone can view active topics
 create policy "Anyone can view active topics"
@@ -122,7 +136,7 @@ create policy "Anyone can view active topics"
 
 create policy "Admins can manage topics"
   on public.topics for all
-  using (exists (select 1 from public.admin_users where id = auth.uid()));
+  using (public.is_admin(auth.uid()));
 
 -- votes: users can only see their own votes; inserts go through edge function
 create policy "Users can view own votes"
@@ -132,7 +146,7 @@ create policy "Users can view own votes"
 -- admin_users: only admins can read the table
 create policy "Admins can view admin_users"
   on public.admin_users for select
-  using (exists (select 1 from public.admin_users where id = auth.uid()));
+  using (public.is_admin(auth.uid()));
 
 -- ────────────────────────────────────────────────────────────
 -- Trigger: auto-create profile on new user sign-up

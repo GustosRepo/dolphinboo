@@ -4,7 +4,7 @@ import type { Topic } from '@dolphinboo/types';
 function mapVoteCount(row: Record<string, unknown>): Topic {
   const votes = row['votes'] as Array<{ count: number }> | undefined;
   return {
-    ...(row as Topic),
+    ...(row as unknown as Topic),
     vote_count: votes?.[0]?.count ?? 0,
     votes: undefined,
   } as unknown as Topic;

@@ -13,10 +13,25 @@
     "type-check": "npm run type-check --workspaces --if-present"
   },
   "devDependencies": {
+    "metro": "0.81.5",
+    "metro-babel-transformer": "0.81.5",
+    "metro-cache": "0.81.5",
+    "metro-cache-key": "0.81.5",
+    "metro-config": "0.81.5",
+    "metro-core": "0.81.5",
+    "metro-file-map": "0.81.5",
+    "metro-minify-terser": "0.81.5",
+    "metro-resolver": "0.81.5",
+    "metro-runtime": "0.81.5",
+    "metro-source-map": "0.81.5",
+    "metro-symbolicate": "0.81.5",
+    "metro-transform-plugins": "0.81.5",
+    "metro-transform-worker": "0.81.5",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.4.5"
   },
   "overrides": {
-    "tailwindcss": "^3.4.0"
+    "tailwindcss": "^3.4.0",
+    "@expo/vector-icons": "~14.0.4"
   }
 }

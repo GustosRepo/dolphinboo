@@ -1,28 +1,50 @@
-import { View, Text, Image } from 'react-native';
-import type { Post } from '@dolphinboo/types';
+import { StyleSheet, Text, View } from 'react-native';
+import { colors } from '../theme/colors';
 
-interface PostCardProps {
-  post: Post;
-}
+type Props = {
+  badge: string;
+  body: string;
+  title: string;
+};
 
-export function PostCard({ post }: PostCardProps) {
+export function PostCard({ badge, body, title }: Props) {
   return (
-    <View className="mx-4 mb-4 border border-gray-200 rounded-xl overflow-hidden">
-      {post.media_url ? (
-        <Image
-          source={{ uri: post.media_url }}
-          className="w-full h-48"
-          resizeMode="cover"
-          accessibilityLabel={post.title}
-        />
-      ) : null}
-      <View className="p-4">
-        <Text className="text-base font-semibold text-gray-900">{post.title}</Text>
-        <Text className="text-sm text-gray-600 mt-1 leading-5">{post.body}</Text>
-        <Text className="text-xs text-gray-400 mt-2">
-          {new Date(post.created_at).toLocaleDateString()}
-        </Text>
-      </View>
+    <View style={styles.card}>
+      <Text style={styles.badge}>{badge}</Text>
+      <Text style={styles.cardTitle}>{title}</Text>
+      <Text style={styles.bodyText}>{body}</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  card: {
+    gap: 10,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 8,
+    backgroundColor: colors.surface,
+  },
+  badge: {
+    alignSelf: 'flex-start',
+    overflow: 'hidden',
+    borderRadius: 6,
+    backgroundColor: '#e8d8c4',
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '800',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  cardTitle: {
+    color: colors.text,
+    fontSize: 18,
+    fontWeight: '800',
+  },
+  bodyText: {
+    color: colors.muted,
+    fontSize: 15,
+    lineHeight: 22,
+  },
+});

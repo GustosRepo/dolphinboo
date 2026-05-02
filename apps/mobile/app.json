@@ -4,30 +4,24 @@
     "slug": "dolphinboo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "scheme": "dolphinboo",
+    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#f5ede0"
     },
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.dolphinboo.app"
     },
     "android": {
+      "package": "com.dolphinboo.app",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.dolphinboo.app"
-    },
-    "plugins": [
-      "expo-router"
-    ],
-    "web": {
-      "bundler": "metro"
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#f5ede0"
+      }
     }
   }
 }

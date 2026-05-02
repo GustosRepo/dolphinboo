@@ -27,6 +27,10 @@ serve(async (req: Request) => {
       Deno.env.get('SUPABASE_ANON_KEY')!,
       { global: { headers: { Authorization: authHeader } } },
     );
+    const supabaseAdmin = createClient(
+      Deno.env.get('SUPABASE_URL')!,
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
+    );
 
     const { data: { user }, error: userError } = await supabase.auth.getUser();
     if (userError || !user) {
@@ -55,7 +59,7 @@ serve(async (req: Request) => {
     }
 
     // ── Subscription check ────────────────────────────────────────────────────
-    const { data: profile } = await supabase
+    const { data: profile } = await supabaseAdmin
       .from('profiles')
       .select('subscription_status')
       .eq('id', user.id)
@@ -66,7 +70,7 @@ serve(async (req: Request) => {
     const windowStart  = new Date(Date.now() - windowMs).toISOString();
 
     // ── Rate-limit check ──────────────────────────────────────────────────────
-    const { data: recentVote } = await supabase
+    const { data: recentVote } = await supabaseAdmin
       .from('votes')
       .select('created_at')
       .eq('user_id', user.id)
@@ -83,7 +87,7 @@ serve(async (req: Request) => {
     }
 
     // ── Cast vote ─────────────────────────────────────────────────────────────
-    const { error: voteError } = await supabase
+    const { error: voteError } = await supabaseAdmin
       .from('votes')
       .insert({ user_id: user.id, topic_id: topicId });
 
