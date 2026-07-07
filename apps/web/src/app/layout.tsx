@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'DolphinBoo — Creator Community',
   description:
     'Vote on future content, unlock exclusive posts, and support your favorite creator with DolphinBoo+.',
+  icons: {
+    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🐬</text></svg>',
+  },
   openGraph: {
     title: 'DolphinBoo',
     description: 'Creator community app. Vote. Subscribe. Enjoy.',
