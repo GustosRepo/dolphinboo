@@ -1,9 +1,7 @@
 "use client";
 
-import { useState } from 'react';
 import s from './page.module.css';
 
-type Locale = 'en' | 'th';
 type SocialDetailKey = 'youtube' | 'facebook' | 'instagram' | 'tiktok';
 
 const copy = {
@@ -67,8 +65,7 @@ const socialLinks: Array<{
 ];
 
 export default function HomePage() {
-  const [locale, setLocale] = useState<Locale>('en');
-  const text = copy[locale];
+  const text = copy.en;
 
   return (
     <main className={s.pageShell}>
@@ -104,22 +101,6 @@ export default function HomePage() {
         <div className={s.profileBlock}>
           <div className={s.metaRow}>
             <span className={s.metaPill}>{text.badge}</span>
-            <div className={s.localeSwitch} role="group" aria-label="Language switcher">
-              <button
-                type="button"
-                className={`${s.localeButton} ${locale === 'en' ? s.localeButtonActive : ''}`}
-                onClick={() => setLocale('en')}
-              >
-                EN
-              </button>
-              <button
-                type="button"
-                className={`${s.localeButton} ${locale === 'th' ? s.localeButtonActive : ''}`}
-                onClick={() => setLocale('th')}
-              >
-                TH
-              </button>
-            </div>
           </div>
           <h1 className={s.title}>{text.title}</h1>
           <p className={s.subtitle}>{text.subtitle}</p>
@@ -145,6 +126,9 @@ export default function HomePage() {
 
       <footer className={s.footer}>
         <p>© {new Date().getFullYear()} DolphinBoo. {text.footerRights}</p>
+        <p>
+          <a href="/privacy">Privacy</a>
+        </p>
         <p>
           {text.footerMadeBy} <a href="https://www.code-werx.com/" target="_blank" rel="noreferrer">Code Werx</a> ❤️
         </p>

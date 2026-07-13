@@ -1,0 +1,67 @@
+:root {
+  --bg-a: #1b1023;
+  --bg-b: #050307;
+  --pink-1: rgba(255, 166, 214, 0.42);
+  --pink-2: rgba(255, 196, 228, 0.3);
+  --pink-border: rgba(255, 196, 228, 0.6);
+  --text-1: #fff0f8;
+  --text-2: #f3cce0;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 2rem 1rem 3rem;
+  background:
+    radial-gradient(circle at 18% -10%, rgba(255, 166, 214, 0.35), transparent 40%),
+    radial-gradient(circle at 88% 6%, rgba(255, 196, 228, 0.28), transparent 32%),
+    linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 100%);
+  display: grid;
+  place-items: start center;
+}
+
+.card {
+  width: min(760px, 100%);
+  border: 1px solid var(--pink-border);
+  border-radius: 1.5rem;
+  background: linear-gradient(180deg, var(--pink-1), var(--pink-2));
+  box-shadow:
+    0 38px 80px -48px rgba(255, 166, 214, 0.72),
+    inset 0 1px 0 rgba(255, 240, 248, 0.44);
+  backdrop-filter: blur(14px);
+  padding: 1.4rem;
+  color: var(--text-1);
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.updated {
+  color: var(--text-2);
+  margin-bottom: 1rem;
+  font-size: 0.92rem;
+}
+
+.card h2 {
+  margin-top: 1rem;
+  margin-bottom: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.card p {
+  color: var(--text-1);
+  line-height: 1.65;
+}
+
+.backLinkWrap {
+  margin-top: 1.25rem;
+}
+
+.backLink {
+  color: var(--text-1);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 700;
+}
