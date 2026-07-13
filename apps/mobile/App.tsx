@@ -114,14 +114,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     borderTopWidth: 1,
-    borderTopColor: colors.border,
-    backgroundColor: colors.surface,
+    borderTopColor: 'rgba(255, 182, 193, 0.35)',
+    backgroundColor: 'rgba(0, 0, 0, 0.78)',
     paddingBottom: 24,
     paddingTop: 10,
-    shadowColor: '#2D1E0F',
+    shadowColor: '#000000',
     shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 12,
+    shadowOpacity: 0.3,
+    shadowRadius: 16,
     elevation: 8,
   },
   tabButton: {
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
   },
   tabIconWrapActive: {
-    backgroundColor: colors.primaryLight + '40',
+    backgroundColor: 'rgba(255, 105, 180, 0.22)',
   },
   tabLabel: {
     color: colors.mutedLight,

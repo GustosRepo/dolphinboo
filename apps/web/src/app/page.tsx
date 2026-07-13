@@ -5,17 +5,14 @@ import s from './page.module.css';
 
 type Locale = 'en' | 'th';
 type SocialDetailKey = 'youtube' | 'facebook' | 'instagram' | 'tiktok';
-type ComingSoonDetailKey = 'merch' | 'app' | 'plus';
 
 const copy = {
   en: {
     badge: 'Official links',
-    title: 'Find DolphinBoo everywhere.',
-    subtitle: 'Official social links now, with merch and more coming soon.',
+    title: 'DolphinBoo everywhere.',
+    subtitle: 'Official social links from DolphinBoo.',
     socialLabel: 'Social media',
-    comingSoonLabel: 'Coming soon',
     socialEyebrow: 'Social',
-    comingSoonEyebrow: 'Coming soon',
     footerRights: 'All rights reserved.',
     footerMadeBy: 'Made by',
     socialDetails: {
@@ -24,20 +21,13 @@ const copy = {
       instagram: 'See photos, reels, and behind-the-scenes drops',
       tiktok: 'Catch short clips and trending moments',
     },
-    comingSoonDetails: {
-      merch: 'DolphinBoo gear and creator favorites are on the way',
-      app: 'Downloads, community voting, and free daily posts',
-      plus: 'Exclusive content, daily voting, and ad-free perks',
-    },
   },
   th: {
     badge: 'ลิงก์ทางการ',
     title: 'ติดตาม DolphinBoo ได้ทุกที่',
-    subtitle: 'รวมโซเชียลทางการไว้ให้แล้ว ส่วน merch กับอย่างอื่น เดี๋ยวมาเพิ่มอีก',
+    subtitle: 'รวมโซเชียลทางการของ DolphinBoo ไว้ที่นี่',
     socialLabel: 'โซเชียลมีเดีย',
-    comingSoonLabel: 'เร็ว ๆ นี้',
     socialEyebrow: 'โซเชียล',
-    comingSoonEyebrow: 'เร็ว ๆ นี้',
     footerRights: 'สงวนลิขสิทธิ์',
     footerMadeBy: 'สร้างโดย',
     socialDetails: {
@@ -45,11 +35,6 @@ const copy = {
       facebook: 'อัปเดตข่าวสารและโพสต์ต่าง ๆ ได้ที่นี่',
       instagram: 'รวมรูป รีล และโมเมนต์เบื้องหลัง',
       tiktok: 'ดูคลิปสั้นสนุก ๆ และช่วงไวรัลล่าสุด',
-    },
-    comingSoonDetails: {
-      merch: 'merch ของ DolphinBoo กับไอเท็มน่ารัก ๆ กำลังมา',
-      app: 'แอปสำหรับดูโพสต์ โหวตคอนเทนต์ และตามอัปเดตรายวัน',
-      plus: 'คอนเทนต์พิเศษ โหวตได้บ่อยขึ้น และดูแบบไม่มีโฆษณา',
     },
   },
 } as const;
@@ -81,28 +66,6 @@ const socialLinks: Array<{
   },
 ];
 
-const comingSoonLinks: Array<{
-  href: string;
-  title: string;
-  detailKey: ComingSoonDetailKey;
-}> = [
-  {
-    href: '#',
-    title: 'Merch',
-    detailKey: 'merch',
-  },
-  {
-    href: '#',
-    title: 'App access',
-    detailKey: 'app',
-  },
-  {
-    href: '#',
-    title: 'DolphinBoo+',
-    detailKey: 'plus',
-  },
-];
-
 export default function HomePage() {
   const [locale, setLocale] = useState<Locale>('en');
   const text = copy[locale];
@@ -112,6 +75,22 @@ export default function HomePage() {
       <div className={s.backdropTop} />
       <div className={s.backdropBottom} />
       <div className={s.backdropGrid} />
+      <div className={s.cosmicLayer} aria-hidden="true">
+        <span className={`${s.star} ${s.starOne}`}>✨</span>
+        <span className={`${s.star} ${s.starTwo}`}>⭐</span>
+        <span className={`${s.star} ${s.starThree}`}>🌟</span>
+        <span className={`${s.star} ${s.starFour}`}>✨</span>
+        <span className={`${s.star} ${s.starFive}`}>⭐</span>
+        <span className={`${s.star} ${s.starSix}`}>🌟</span>
+
+        <span className={`${s.ship} ${s.shipOne}`}>🛸</span>
+        <span className={`${s.ship} ${s.shipTwo}`}>👽</span>
+        <span className={`${s.ship} ${s.shipThree}`}>🛸</span>
+
+        <span className={`${s.pyramid} ${s.pyramidOne}`}>🔺</span>
+        <span className={`${s.pyramid} ${s.pyramidTwo}`}>🔺</span>
+        <span className={`${s.pyramid} ${s.pyramidThree}`}>🔺</span>
+      </div>
 
       <section className={s.linktreeCard}>
         <div className={s.heroFrame}>
@@ -158,22 +137,6 @@ export default function HomePage() {
                 </span>
                 <span className={s.linkArrow} aria-hidden="true">↗</span>
               </a>
-            ))}
-          </div>
-        </div>
-
-        <div className={s.linksGroup}>
-          <p className={s.groupLabel}>{text.comingSoonLabel}</p>
-          <div className={s.linksList}>
-            {comingSoonLinks.map((link) => (
-              <div key={link.title} className={`${s.linkButton} ${s.linkButtonMuted}`}>
-                <span className={s.linkCopy}>
-                  <span className={s.linkEyebrow}>{text.comingSoonEyebrow}</span>
-                  <span className={s.linkTitle}>{link.title}</span>
-                  <span className={s.linkDetail}>{text.comingSoonDetails[link.detailKey]}</span>
-                </span>
-                <span className={s.linkArrow} aria-hidden="true">•</span>
-              </div>
             ))}
           </div>
         </div>

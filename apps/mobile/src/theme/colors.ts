@@ -1,11 +1,11 @@
 export const colors = {
   // Backgrounds
-  bg: '#F5EFE6',
-  surface: '#FFFFFF',
-  surfaceWarm: '#FFF9F2',
+  bg: '#000000',
+  surface: 'rgba(255, 105, 180, 0.20)',
+  surfaceWarm: 'rgba(255, 182, 193, 0.24)',
   // Borders
-  border: '#E8D5C0',
-  borderLight: '#F0E4D4',
+  border: 'rgba(255, 182, 193, 0.50)',
+  borderLight: 'rgba(255, 182, 193, 0.30)',
   // Brand blue
   primary: '#6B8EAE',
   primaryDark: '#4A6E8F',
@@ -17,10 +17,10 @@ export const colors = {
   yellowDark: '#E5A820',
   mint: '#B5EAD7',
   // Text
-  text: '#2D1E0F',
-  textSecondary: '#7A6048',
-  muted: '#9E8A78',
-  mutedLight: '#C4AD98',
+  text: '#FFF1F8',
+  textSecondary: '#F2C8DC',
+  muted: '#D8A7BF',
+  mutedLight: '#BD88A3',
   // Utility
   white: '#FFFFFF',
   success: '#4CAF82',

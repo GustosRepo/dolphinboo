@@ -6,7 +6,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  color: #111827;
-  background: #fff;
+  color: #fff0f8;
+  background: #000;
   -webkit-font-smoothing: antialiased;
 }
