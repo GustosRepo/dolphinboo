@@ -92,7 +92,7 @@ export default function HomePage() {
       <section className={s.linktreeCard}>
         <div className={s.heroFrame}>
           <img
-            src="/images/dolphineboobanner.png"
+            src="/images/liahhollywood.jpg"
             alt="DolphinBoo hero"
             className={s.heroImage}
           />
